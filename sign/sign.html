@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up/In</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <!-- <form onsubmit="signUp(event)"> -->
+                <div class="form1">
+                <h1>Create Account</h1>
+               
+                <input type="text" placeholder="Name" id="userName"/>
+                <input type="email" placeholder="Email" id="userEmail"/>
+                <input type="number" placeholder="Phone" id="userPhone"/>
+                <input type="text" placeholder="Country" id="userCountry">
+                <input type="text" placeholder="City" id="userCity"/>
+                <input type="password" placeholder="Password" id="userPassword"/>
+                <div class="intradio" style="display: flex; align-items: center; justify-content: center;">
+                <div class="form-check form-check-inline" >
+                    <input class="form-check-input" type="radio" name="accType" id="customer" value="customer" style="margin-right: 4px;">
+                    <label class="form-check-label" for="customer" style="margin-top: 4px;">Customer</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="accType" id="restaurant" value="restaurant" style="margin-right: 4px;">
+                    <label class="form-check-label" for="restaurant" style="margin-top: 4px;">Restaurant</label>
+                  </div>
+                </div>
+                  <br>
+                <button onclick="signUp()">Sign Up</button>
+            </div>
+            <!-- </form> -->
+        </div>
+        <div class="form-container sign-in-container">
+            <form onsubmit="logIn(event)" novalidate id="needs-validation">
+                <h1>Sign in</h1>
+            
+                <input type="email" placeholder="Email" id="uemail"/>
+                <input type="password" placeholder="Password" id="upassword"/>
+                <!-- <a href="#">Forgot your password?</a> -->
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 style="font-family: 'Times New Roman', Times, serif; text-shadow: 2px 2px black;">Welcome Back!</h1>
+                    <p>
+                        To keep connected with us please Log in
+                    </p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1  style="font-family: 'Times New Roman', Times, serif; text-shadow: 2px 2px black;">MAGIC MEAL</h1>
+                    <p>Enter your details and start your journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+    container.classList.add('right-panel-active');
+});
+
+signInButton.addEventListener('click', () => {
+    container.classList.remove('right-panel-active');
+});
+    </script>
+
+    <!-- swetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAgKJNMdTLmhTDFiUDIUZJGum4piLGk-rA",
+    authDomain: "hackathon-25fdb.firebaseapp.com",
+    projectId: "hackathon-25fdb",
+    storageBucket: "hackathon-25fdb.appspot.com",
+    messagingSenderId: "161347336341",
+    appId: "1:161347336341:web:dcc684b8794d9a5ab6c39c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="sign.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Main</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: rgb(255, 255, 255); font-family: 'Times New Roman', Times, serif;"><h3>Meal Magic</h3></a>
+                <div style="display: flex; justify-content: flex-end; align-items: center;">
+                <h3 style="color: white; margin-right: 4px;">Welcome <span id="username"></span></h3>
+                <li class="nav-item dropdown" style="margin-right: 3px; margin-left: 3px; display: flex; align-content: center;">
+                    <button class="nav-link dropdown-toggle btn btn-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="height: 88%;">
+                      Orders
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item" href="./orders/pending.html">Pending</a></li>
+                      <li><a class="dropdown-item" href="./orders/progress.html">Progress</a></li>
+                      <li><a class="dropdown-item" href="#">Delievered</a></li>
+                    </ul>
+                  </li>
+
+                <button class="btn btn-light" style="margin-left: 4px;" type="submit" onclick="logOut()">Log Out</button>
+          </div>
+        </div>
+      </nav>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://source.unsplash.com/1400x600/?Food,breakfast" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/1400x600/?Food,delivery" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://source.unsplash.com/1400x600/?Food,restaurant" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    
+        <div class="container my-5">
+            <div class="mb-3">
+                <h3 style="text-align:center; font-family: 'Times New Roman', Times, serif;">ADD A NEW ITEM</h3>
+
+                <div style="margin-top: 50px;">
+                    <label for="itemName" class="form-label">Item Name:</label>
+              <input type="email" class="form-control" id="itemName" aria-describedby="emailHelp">
+    
+            
+                    <label for="category" class="form-label">Cateogry: </label>
+              <input type="text" class="form-control" id="category" aria-describedby="emailHelp">
+            
+                    <label for="price" class="form-label">Price: </label>
+              <input type="number" class="form-control" id="price" aria-describedby="emailHelp">
+            
+            
+            
+                    <label for="deliveryType" class="form-label">Delivery Type: </label>
+                    <input type="text" class="form-control" id="deliveryType" aria-describedby="emailHelp">
+            
+            <input type="file" class="form-control my-3" id="imageFile" placeholder="insertImage">
+            
+            <button onclick="addItem()" class="btn btn-dark my-3" style="display: flex; justify-content: flex-end;"> ADD ITEM</button>
+        </div>
+            </div>
+
+
+    <h3 style="text-align: center; font-family: 'Times New Roman', Times, serif;">CURRENTLY SELLING ITEMS</h3>
+<div id="main" class="row" style="display: flex; justify-content: center;">
+</div>
+
+
+         <!-- swetAlert -->
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <!-- swetAlert -->
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAgKJNMdTLmhTDFiUDIUZJGum4piLGk-rA",
+    authDomain: "hackathon-25fdb.firebaseapp.com",
+    projectId: "hackathon-25fdb",
+    storageBucket: "hackathon-25fdb.appspot.com",
+    messagingSenderId: "161347336341",
+    appId: "1:161347336341:web:dcc684b8794d9a5ab6c39c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="restaurantDashboard.js"></script>
+
+</body>
+</html>
